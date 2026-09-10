@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>VanssStore • Manajemen Produk</title>
+    <!-- Font & Ikon -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-left">
+                <img class="profile-pic" id="profilePic" src="https://ganga--link--ghhzdp9sv8hk.code.run/i/yipl92hn.jpg" alt="Foto Profil">
+                <div>
+                    <h1><i class="fas fa-store"></i> VanssStore</h1>
+                    <p>Kelola produk jualanmu dengan mudah</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Cari nama / harga...">
+                </div>
+                <span id="adminStatus" style="font-size:0.8rem; color:#9ca3af;"></span>
+                <button class="btn btn-admin" id="btnAdminMode"><i class="fas fa-user-shield"></i> Mode Admin</button>
+                <button class="btn btn-add" id="btnTambahProduk" style="display:none;"><i class="fas fa-plus"></i> Tambah Produk</button>
+            </div>
+        </div>
+
+        <div id="produkGrid" class="produk-grid"></div>
+        <div class="pagination" id="paginationContainer"></div>
+    </div>
+
+    <footer>✦ Data tersimpan otomatis di browser ✦</footer>
+
+    <!-- Modal Tambah / Edit Produk -->
+    <div id="modalProduk" class="modal">
+        <div class="modal-content">
+            <h2 id="modalTitle">Tambah Produk</h2>
+            <input type="text" id="inputNama" placeholder="Nama produk">
+            <input type="text" id="inputHarga" placeholder="Harga (contoh: 120000)">
+            <label class="file-label" id="fileLabel">
+                <i class="fas fa-image"></i> <span id="fileText">Pilih foto produk</span>
+                <input type="file" id="inputFoto" accept="image/*">
+            </label>
+            <input type="hidden" id="editIndex" value="-1">
+            <div class="modal-actions">
+                <button class="btn-save" id="btnSimpan">Simpan</button>
+                <button class="btn-cancel" id="btnBatal">Batal</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Password Overlay -->
+    <div id="passwordOverlay" class="password-overlay">
+        <div class="password-box">
+            <h2>🔐 Verifikasi Admin</h2>
+            <p style="color:#9ca3af; margin-bottom:12px;">Masukkan password untuk mengakses menu edit</p>
+            <input type="password" id="inputPassword" placeholder="Password admin">
+            <div>
+                <button class="btn-pw-confirm" id="btnPwConfirm">Konfirmasi</button>
+                <button class="btn-pw-cancel" id="btnPwCancel">Batal</button>
+            </div>
+            <div id="pwError" style="color:#ef4444; font-size:0.8rem; margin-top:10px;"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
